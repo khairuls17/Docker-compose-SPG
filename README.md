@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# Docker-compose-SPG
-Monitoring Perangkat Mikrotik dengan SNMP-Exporter Prometheus dan Grafana
-=======
 
 # Monitoring MikroTik menggunakan Prometheus, SNMP Exporter dan Grafana
 
