@@ -1,0 +1,32 @@
+global:
+  scrape_interval: 60s
+  evaluation_interval: 60s
+
+scrape_configs:
+  - job_name: 'snmp-mikrotik'
+    # Biarkan label dari target dipertahankan
+    honor_labels: true
+
+    # Endpoint pada snmp_exporter
+    metrics_path: /snmp
+
+    # module yang didefinisikan di snmp_exporter/snmp.yml (mis. "mikrotik")
+    params:
+      module: [mikrotik]
+
+    # Daftar perangkat MikroTik (isi dengan IP atau hostname SNMP target)
+    static_configs:
+      - targets:
+          - 192.168.10.1   # contoh: ganti dengan IP MikroTik Anda
+        labels:
+          site: kantor-pusat
+
+    # Relabeling: kirim target asli sebagai parameter ke snmp_exporter,
+    # lalu gantikan alamat scrape ke alamat snmp_exporter sendiri.
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - target_label: __address__
+        replacement: snmp-exporter:9116   # ganti dengan host:port snmp_exporter Anda
+      - source_labels: [__param_target]
+        target_label: instance
