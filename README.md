@@ -92,7 +92,7 @@ docker-compose up -d
 
 ## Struktur Folder
 ```
-monitoring-jaringan/
+Docker-compose-SPG/
 ├── docker-compose.yml
 ├── config/
 │   ├── prometheus/
