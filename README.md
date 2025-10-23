@@ -122,4 +122,3 @@ Silakan buat issue atau pull request untuk kontribusi.
 
 ---
 *Catatan: Ganti semua IP address dan kredensial sesuai dengan environment Anda.*
->>>>>>> y
